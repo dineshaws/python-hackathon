@@ -12,7 +12,7 @@ These instructions will provide the necessary steps to build an environment to r
 - Python 3;
 - Docker.
 
-- The file config.py contains settings of each environment (development, staging or production).
+- The file app/infrastructure/config/config_factory.py contains settings of each environment (development, staging or production).
 
 - The Dockerfile contains all the steps to create an image containing all the required infrastructure.
 
@@ -40,7 +40,7 @@ If you already have a Python environment such as pyenv-virtualenv just create a 
 * Create a new virtual environment inside the service directory, if it hasn't been created yet: `python3 -m venv env`;
 * Activate the virtual env: `source env/bin/activate`;
 
-### Export AWS access keys and others environment variables:
+### Export environment variables:
 
 Have these globals exported *only in your local shell session* i.e. *NEVER* to be commited in any branch at all:
 
