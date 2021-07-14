@@ -1,6 +1,6 @@
 # python-hackathon
 
-Microservices to run the the background jobs for project LOKI
+Microservice to run the the sync data for hackathon project
 
 ## Getting Started
 
@@ -63,14 +63,6 @@ uvicorn app.server:app --reload --port 5001
 - Sync Data: http://localhost:5001/api/v1/seed-data
 
 
-## Unit test
-
-- Run the following command at the root of the project:
-
-```
-python3 -W ignore:ImportWarning -m unittest discover
-```
-
 ### Build on local machine
 
 Clone the project
@@ -82,7 +74,8 @@ git clone https://<YOU_USER_NAME>@github.org/dineshaws/python-hackathon.git
 Within a shell session (terminal emulator opened), install docker (if not already) and then build the docker image:
 
 ```
-snap install docker --devmode
+curl -fsSL https://get.docker.com -o get-docker.sh
+sh get-docker.sh
 ```
 
 ```
