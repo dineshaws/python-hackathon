@@ -11,10 +11,9 @@ These instructions will provide the necessary steps to build an environment to r
 - Linux;
 - Python 3;
 - Docker.
-
-- The file app/infrastructure/config/config_factory.py contains settings of each environment (development, staging or production).
-
+- The file `app/infrastructure/config/config_factory.py` contains settings of each environment (development, staging or production).
 - The Dockerfile contains all the steps to create an image containing all the required infrastructure.
+- Setup Mysql `banking` database
 
 ## Process Sumary
 
