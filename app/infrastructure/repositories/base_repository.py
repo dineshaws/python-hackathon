@@ -44,23 +44,31 @@ class BaseRepository():
         TABLES = {}
         TABLES['accounts'] = (
             "CREATE TABLE `accounts` ("
-                "`id` int(11) NOT NULL AUTO_INCREMENT,"
-                "`account_number` int(11) NOT NULL,"
-                "`name` varchar(45) NOT NULL,"
-                "`description` varchar(45) DEFAULT NULL,"
-                "PRIMARY KEY (`id`)"
-            ") ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;"
-            )
+                "`id` bigint NOT NULL AUTO_INCREMENT,"
+                "`account_number` varchar(255) NOT NULL,"
+                "`account_balance` decimal(19,2) NOT NULL,"
+                "`description` varchar(255) DEFAULT NULL,"
+                "`account_name` varchar(255) NOT NULL,"
+                "`version` bigint NOT NULL,"
+                "PRIMARY KEY (`id`),"
+                "UNIQUE KEY `UK_6kplolsdtr3slnvx97xsy2kc8` (`account_number`)"
+            ") ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;"
+        )
 
-        TABLES['transactions'] = (
-            "CREATE TABLE `transactions` ("
-                "`id` int(11) NOT NULL AUTO_INCREMENT,"
-                "`transaction_number` int(11) NOT NULL,"
-                "`amount` int(11) NOT NULL,"
-                "`type` varchar(4) NOT NULL,"
-                "PRIMARY KEY (`id`)"
-            ") ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;"
-            )
+        TABLES['account_transactions'] = (
+            "CREATE TABLE `account_transactions` ("
+                "`id` bigint NOT NULL AUTO_INCREMENT,"
+                "`accounts_id` bigint NOT NULL,"
+                "`txn_type` varchar(255) NOT NULL,"
+                "`amount` decimal(19,2) NOT NULL,"
+                "`txn_number` varchar(255) NOT NULL,"
+                "`created_on` varchar(255) NOT NULL,"
+                "`version` bigint NOT NULL,"
+                "PRIMARY KEY (`id`),"
+                "KEY `FKdsg8ptc8qfbq0aejfppd8j6b2` (`accounts_id`),"
+                "CONSTRAINT `FKdsg8ptc8qfbq0aejfppd8j6b2` FOREIGN KEY (`accounts_id`) REFERENCES `accounts` (`id`)"
+            ") ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;"
+        )
         Database.connect()
         for table_name in TABLES:
             table_description = TABLES[table_name]
@@ -78,7 +86,7 @@ class BaseRepository():
         Database.disconnect()
 
     def drop_tables(self):
-        TABLES = ['transactions', 'accounts']
+        TABLES = ['account_transactions', 'accounts'] # dropping account_transactions first as its have foreign key on accounts table
         Database.connect()
         for table_name in TABLES:
             try:

@@ -14,31 +14,51 @@ class SeedController(BaseController):
         accounts = [
             {
                 "account_number": 1,
-                "name": "dinesh",
-                "description": "Working on python module"
+                "account_balance": 100,
+                "description": "Worked on python module",
+                "account_name": "Dinesh Prajapati",
+                "version": 0,
             },
             {
                 "account_number": 2,
-                "name": "vijay",
-                "description": "Working on angular module"
+                "account_balance": 200,
+                "description": "Worked on angular module",
+                "account_name": "Vijay",
+                "version": 0,
             },
             {
                 "account_number": 3,
-                "name": "hitendra",
-                "description": "Working on grails module"
+                "account_balance": 300,
+                "description": "Worked on grails module",
+                "account_name": "Hitendra",
+                "version": 0,
             }
         ]
 
         transactions = [
             {
-                "transaction_number": 101,
+                "accounts_id": 1,
                 "amount": 100,
-                "type": "Dr"
+                "txn_type": "Cr",
+                "txn_number": "1626220800000",
+                "created_on": "2021-07-15T00:00:00.000Z",
+                "version": 0,
             },
             {
-                "transaction_number": 102,
+                "accounts_id": 2,
                 "amount": 200,
-                "type": "Cr"
+                "txn_type": "Cr",
+                "txn_number": "1626220800000",
+                "created_on": "2021-07-15T00:00:00.000Z",
+                "version": 0,
+            },
+            {
+                "accounts_id": 3,
+                "amount": 300,
+                "txn_type": "Cr",
+                "txn_number": "1626220800000",
+                "created_on": "2021-07-15T00:00:00.000Z",
+                "version": 0,
             }
         ]
 

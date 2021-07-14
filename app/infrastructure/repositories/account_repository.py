@@ -22,8 +22,8 @@ class AccountRepository(BaseRepository):
     
     def create_account(self, data):
         statement = ("INSERT INTO accounts "
-              "(account_number, name, description) "
-              "VALUES (%(account_number)s, %(name)s, %(description)s)")
+              "(account_number, account_balance, description, account_name, version) "
+              "VALUES (%(account_number)s, %(account_balance)s, %(description)s, %(account_name)s, %(version)s)")
         # Insert salary information
         last_row_id = self.insert_one(statement, data)
         return last_row_id

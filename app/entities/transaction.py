@@ -5,6 +5,8 @@ from typing import Optional
 transaction schema
 '''
 class Transaction(BaseModel):
-    transaction_number: int
+    accounts_id: int
     amount: int
-    type: str
+    txn_type: str
+    txn_number: str
+    created_on: str
