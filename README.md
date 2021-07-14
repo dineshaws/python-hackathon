@@ -60,7 +60,7 @@ pip3 install -r requirements.txt
 uvicorn app.server:app --reload --port 5001
 ```
 
-- Integrating events report: http://localhost:5001/api/v1/seed-data
+- Sync Data: http://localhost:5001/api/v1/seed-data
 
 
 ## Unit test
