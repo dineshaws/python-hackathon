@@ -60,8 +60,11 @@ pip3 install -r requirements.txt
 uvicorn app.server:app --reload --port 5001
 ```
 
-- Sync Data: http://localhost:5001/api/v1/seed-data
+- APIs: 
 
+```
+curl -X POST http://localhost:5001/api/v1/seed-data
+```
 
 ### Build on local machine
 
