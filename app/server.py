@@ -1,4 +1,6 @@
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
+
 
 from app.interfaces.controllers.controller_factory import ControllerFactory
 from app.infrastructure.config.enum.controller import get_controller_enum
@@ -7,6 +9,19 @@ from app.entities.transaction import Transaction
 
 app = FastAPI()
 
+origins = [
+    "http://localhost",
+    "http://localhost:4200",
+    "http://localhost:5000",
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 account_controller = ControllerFactory().create(get_controller_enum('AccountController'))
 transaction_controller = ControllerFactory().create(get_controller_enum('TransactionController'))
